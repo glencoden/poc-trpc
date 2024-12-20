@@ -6,11 +6,7 @@ const API_PORT = 5555
 
 const app = express()
 
-app.use(
-    cors({
-        origin: ['http://localhost:3000'],
-    }),
-)
+app.use(cors())
 
 app.use('/trpc', trpcExpressAdapter)
 
