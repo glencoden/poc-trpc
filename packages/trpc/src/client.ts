@@ -1,4 +1,4 @@
 import { createTRPCReact } from '@trpc/react-query'
-import { TRPCRouter } from './router/index.js'
+import { TRPCRouter } from './router'
 
 export const api = createTRPCReact<TRPCRouter>()

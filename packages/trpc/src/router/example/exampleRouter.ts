@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { publicProcedure } from '../../index.js'
+import { publicProcedure } from '../../index'
 
 export const exampleRouter = {
     get: publicProcedure

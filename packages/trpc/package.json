@@ -3,26 +3,10 @@
     "version": "0.0.1",
     "type": "module",
     "exports": {
-        "./adapter": {
-            "import": "./dist/adapter.js",
-            "require": "./dist/adapter.js",
-            "types": "./dist/adapter.d.ts"
-        },
-        "./client": {
-            "import": "./dist/client.js",
-            "require": "./dist/client.js",
-            "types": "./dist/client.d.ts"
-        },
-        "./provider": {
-            "import": "./dist/provider.jsx",
-            "require": "./dist/provider.jsx",
-            "types": "./dist/provider.d.ts"
-        },
-        "./router": {
-            "import": "./dist/router/index.js",
-            "require": "./dist/router/index.js",
-            "types": "./dist/router/index.d.ts"
-        }
+        "./adapter": "./dist/adapter.js",
+        "./client": "./dist/client.js",
+        "./provider": "./dist/provider.jsx",
+        "./router": "./dist/router/index.js"
     },
     "scripts": {
         "build": "tsc",

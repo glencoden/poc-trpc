@@ -14,5 +14,5 @@ export const Consumer: React.FC<Readonly<{ inputId: string }>> = ({
         return <div>Nothing here...</div>
     }
 
-    return <p>Some other place in the app: {data}</p>
+    return <p>AND OVER HERE: {data}</p>
 }

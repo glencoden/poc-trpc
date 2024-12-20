@@ -1,6 +1,6 @@
 import { initTRPC } from '@trpc/server'
 import { ZodError } from 'zod'
-import { api } from './services/api.js'
+import { api } from './services/api'
 
 // We can get the express req and res objects here - { req, res }: trpcExpress.CreateExpressContextOptions
 export const createContext = async () => {
