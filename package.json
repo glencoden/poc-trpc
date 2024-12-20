@@ -1,0 +1,15 @@
+{
+    "name": "poc-trpc",
+    "version": "0.0.1",
+    "scripts": {
+        "build": "turbo build",
+        "dev": "turbo dev",
+        "format": "prettier --write ."
+    },
+    "author": "glencoden",
+    "packageManager": "pnpm@9.15.1",
+    "devDependencies": {
+        "prettier": "^3.4.2",
+        "turbo": "^2.3.3"
+    }
+}

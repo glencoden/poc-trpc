@@ -1,0 +1,10 @@
+.turbo
+dist
+build
+node_modules
+.idea
+.vscode
+.env
+.env.*
+.DS_Store
+npm-debug.log*
