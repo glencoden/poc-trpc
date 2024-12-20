@@ -20,7 +20,10 @@ export const TRPCQueryClientProvider: React.FC<React.PropsWithChildren> = ({
                             opts.result instanceof Error),
                 }),
                 httpBatchLink({
-                    url: `http://localhost:${API_PORT}/trpc`,
+                    url:
+                        process.env.NODE_ENV === 'development'
+                            ? `http://localhost:${API_PORT}}/trpc`
+                            : 'https://hkfx2y-5555.csb.app/trpc',
                 }),
             ],
         }),

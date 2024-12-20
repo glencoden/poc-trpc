@@ -10,7 +10,7 @@ export const Input: React.FC<Readonly<{ inputId: string }>> = ({ inputId }) => {
 
     const { mutate: setInputValue } = api.example.set.useMutation({
         onError: () => {
-            alert('Something went wrong')
+            alert('Input value could not be set')
         },
         onSettled: () => {
             utils.example.get.invalidate({ inputId })
