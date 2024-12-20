@@ -8,7 +8,7 @@ type ApiResponse<T> =
           error: string
       }
 
-const MOCK_API_DELAY = 1000
+const MOCK_API_DELAY = 500
 
 class Api {
     inputValues: Record<string, string> = {}

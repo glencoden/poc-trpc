@@ -21,7 +21,9 @@ export const TRPCQueryClientProvider: React.FC<React.PropsWithChildren> = ({
                     },
                 }),
                 httpBatchLink({
-                    url: 'https://hkfx2y-5555.csb.app/trpc', // `http://localhost:${5555}}/trpc`
+                    url:
+                        window.location.origin.replace('3000', '5555') +
+                        '/trpc',
                 }),
             ],
         }),
