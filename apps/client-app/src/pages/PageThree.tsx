@@ -1,14 +1,12 @@
 import React from 'react'
-import { Consumer } from '../components/Consumer'
 import { Input } from '../components/Input'
 
-const INPUT_ID = 'world1234'
+const INPUT_ID = 'favorite-day-of-week'
 
 export const PageThree: React.FC = () => {
     return (
-        <>
+        <div className='page-container'>
             <Input inputId={INPUT_ID} />
-            <Consumer inputId={INPUT_ID} />
-        </>
+        </div>
     )
 }

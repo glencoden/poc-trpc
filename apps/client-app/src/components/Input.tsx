@@ -45,11 +45,14 @@ export const Input: React.FC<Readonly<{ inputId: string }>> = ({ inputId }) => {
     }
 
     return (
-        <input
-            type='text'
-            style={{ opacity: isPending ? '0.5' : 1 }}
-            value={data ?? ''}
-            onChange={handleInputChange}
-        />
+        <div>
+            <h4>{inputId}</h4>
+            <input
+                type='text'
+                style={{ opacity: isPending ? '0.5' : 1 }}
+                value={data ?? ''}
+                onChange={handleInputChange}
+            />
+        </div>
     )
 }

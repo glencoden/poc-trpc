@@ -1,6 +1,8 @@
 import { TRPCQueryClientProvider } from '@repo/trpc/provider'
 import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Consumer } from './components/Consumer'
+import { PageTransition } from './components/PageTransition'
 import './index.css'
 import { PageOne } from './pages/PageOne'
 import { PageThree } from './pages/PageThree'
@@ -24,7 +26,9 @@ const App: React.FC = () => {
 
     return (
         <main>
-            <section className='page-container'>
+            <Consumer inputId='cool-developer-name' />
+
+            <PageTransition pageSlugs={pageSlugs} activePageSlug={selectedPage}>
                 {(() => {
                     switch (selectedPage) {
                         case 'pageOne':
@@ -35,9 +39,9 @@ const App: React.FC = () => {
                             return <PageThree />
                     }
                 })()}
-            </section>
+            </PageTransition>
 
-            <section className='page-navigation'>
+            <nav className='page-navigation'>
                 <button
                     onClick={() => setSelectedPage(prevPage!)}
                     disabled={!prevPage}
@@ -50,7 +54,7 @@ const App: React.FC = () => {
                 >
                     Next
                 </button>
-            </section>
+            </nav>
         </main>
     )
 }

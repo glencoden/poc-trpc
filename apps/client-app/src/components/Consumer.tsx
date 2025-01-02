@@ -14,5 +14,12 @@ export const Consumer: React.FC<Readonly<{ inputId: string }>> = ({
         return <div>Nothing here...</div>
     }
 
-    return <p>I'M ANOTHER COMPONENT: {data}</p>
+    return (
+        <p className='consumer'>
+            I consume the "{inputId}" input value
+            <br />
+            <br />
+            <mark>{data}</mark>
+        </p>
+    )
 }
