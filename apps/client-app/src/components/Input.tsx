@@ -5,17 +5,17 @@ const MUTATION_DEBOUNCE_TIME = 1000
 
 export const Input: React.FC<Readonly<{ inputId: string }>> = ({ inputId }) => {
     // Get value from the API
-    const { data, isLoading } = api.example.get.useQuery({ inputId })
+    const { data, isLoading } = api.input.get.useQuery({ inputId })
 
     // Set value to the API
     const utils = api.useUtils()
 
-    const { mutate: setInputValue, isPending } = api.example.set.useMutation({
+    const { mutate: setInputValue, isPending } = api.input.set.useMutation({
         onError: () => {
             alert('Input value could not be set')
         },
         onSettled: () => {
-            utils.example.get.invalidate({ inputId })
+            utils.input.get.invalidate({ inputId })
         },
     })
 
@@ -27,7 +27,7 @@ export const Input: React.FC<Readonly<{ inputId: string }>> = ({ inputId }) => {
         }
 
         // Optimistic update
-        utils.example.get.setData({ inputId }, event.target.value)
+        utils.input.get.setData({ inputId }, event.target.value)
 
         // Debounce the setInputValue call
         clearTimeout(debounceTimeoutId.current)

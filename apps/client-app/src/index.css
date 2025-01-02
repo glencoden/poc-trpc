@@ -18,6 +18,11 @@ main {
     height: 100vh;
 }
 
+p {
+    margin-top: 4rem;
+    color: deeppink;
+}
+
 input {
     font-size: 1rem;
     padding: 0.5rem;
@@ -25,7 +30,33 @@ input {
     border-radius: 0.25rem;
 }
 
-p {
-    margin-top: 4rem;
-    color: deeppink;
+button {
+    width: 120px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #000097;
+    color: #f5f5dc;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #b3b3ff;
+    cursor: default;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
 }

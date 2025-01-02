@@ -9,6 +9,7 @@ type ApiResponse<T> =
       }
 
 const MOCK_API_DELAY = 500
+const THROW_ERROR_RATE = 0
 
 class Api {
     inputValues: Record<string, string> = {}
@@ -19,7 +20,7 @@ class Api {
     ): Promise<ApiResponse<string>> {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                if (Math.random() < 0.2) {
+                if (Math.random() < THROW_ERROR_RATE) {
                     reject({ data: null, error: 'Something went wrong' })
                     return
                 }

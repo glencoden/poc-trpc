@@ -2,9 +2,11 @@ import { initTRPC } from '@trpc/server'
 import { ZodError } from 'zod'
 import { api } from './services/api'
 
-// We can get the express req and res objects here - { req, res }: trpcExpress.CreateExpressContextOptions
+// A new context is created for each request, which means we can:
+//
+// 1. Get the current express req and res objects here - { req, res }: trpcExpress.CreateExpressContextOptions
 export const createContext = async () => {
-    // We can add a database client and an auth session here
+    // 2. Add a database client and and the latest auth session here
     return { api }
 }
 

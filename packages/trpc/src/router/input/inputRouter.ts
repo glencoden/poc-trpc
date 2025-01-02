@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { publicProcedure } from '../../index'
 
-export const exampleRouter = {
+export const inputRouter = {
     get: publicProcedure
         .input(z.object({ inputId: z.string() }))
         .query(({ ctx, input }) => {

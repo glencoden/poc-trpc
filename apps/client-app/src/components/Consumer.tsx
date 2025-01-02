@@ -4,7 +4,7 @@ import React from 'react'
 export const Consumer: React.FC<Readonly<{ inputId: string }>> = ({
     inputId,
 }) => {
-    const { data, isLoading } = api.example.get.useQuery({ inputId })
+    const { data, isLoading } = api.input.get.useQuery({ inputId })
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -14,5 +14,5 @@ export const Consumer: React.FC<Readonly<{ inputId: string }>> = ({
         return <div>Nothing here...</div>
     }
 
-    return <p>AND OVER HERE: {data}</p>
+    return <p>I'M ANOTHER COMPONENT: {data}</p>
 }
