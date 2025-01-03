@@ -8,6 +8,8 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5dc;
     color: #000066;
+    padding: 0;
+    margin: 0;
 }
 
 main {
@@ -26,7 +28,7 @@ input {
     width: 240px;
 }
 
-button {
+a {
     width: 120px;
     margin: 8px;
     padding: 8px;
@@ -35,18 +37,16 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-button:disabled {
-    background-color: #b3b3ff;
-    cursor: default;
+    text-decoration: none;
+    text-align: center;
 }
 
 .consumer {
-    color: deeppink;
+    height: 64px;
     padding: 16px;
     border: 3px solid deeppink;
     border-radius: 4px;
+    color: deeppink;
 }
 
 .page-container {

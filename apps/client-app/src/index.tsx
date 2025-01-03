@@ -1,6 +1,7 @@
 import { TRPCQueryClientProvider } from '@repo/trpc/provider'
-import React, { useState } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
+import { Link, useRoute } from 'wouter'
 import { Consumer } from './components/Consumer'
 import { PageTransition } from './components/PageTransition'
 import './index.css'
@@ -19,18 +20,31 @@ const pageSlugs = ['pageOne', 'pageTwo', 'pageThree'] as const
 type PageSlug = (typeof pageSlugs)[number]
 
 const App: React.FC = () => {
-    const [selectedPage, setSelectedPage] = useState<PageSlug>('pageOne')
+    const [match, params] = useRoute('/:pageSlug')
 
-    const prevPage = pageSlugs[pageSlugs.indexOf(selectedPage) - 1]
-    const nextPage = pageSlugs[pageSlugs.indexOf(selectedPage) + 1]
+    if (!match) {
+        return (
+            <main>
+                <Link href={`/pageOne`}>Go to page one</Link>
+            </main>
+        )
+    }
+
+    const currentPageSlug = params.pageSlug as PageSlug
+
+    const prevPage = match && pageSlugs[pageSlugs.indexOf(currentPageSlug) - 1]
+    const nextPage = match && pageSlugs[pageSlugs.indexOf(currentPageSlug) + 1]
 
     return (
         <main>
             <Consumer inputId='cool-developer-name' />
 
-            <PageTransition pageSlugs={pageSlugs} activePageSlug={selectedPage}>
+            <PageTransition
+                pageSlugs={pageSlugs}
+                activePageSlug={currentPageSlug}
+            >
                 {(() => {
-                    switch (selectedPage) {
+                    switch (currentPageSlug) {
                         case 'pageOne':
                             return <PageOne />
                         case 'pageTwo':
@@ -42,18 +56,18 @@ const App: React.FC = () => {
             </PageTransition>
 
             <nav className='page-navigation'>
-                <button
-                    onClick={() => setSelectedPage(prevPage!)}
-                    disabled={!prevPage}
+                <Link
+                    href={`/${prevPage ?? currentPageSlug}`}
+                    style={prevPage ? {} : { opacity: 0.5, cursor: 'default' }}
                 >
                     Prev
-                </button>
-                <button
-                    onClick={() => setSelectedPage(nextPage!)}
-                    disabled={!nextPage}
+                </Link>
+                <Link
+                    href={`/${nextPage ?? currentPageSlug}`}
+                    style={nextPage ? {} : { opacity: 0.5, cursor: 'default' }}
                 >
                     Next
-                </button>
+                </Link>
             </nav>
         </main>
     )
