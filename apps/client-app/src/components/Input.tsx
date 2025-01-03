@@ -40,10 +40,6 @@ export const Input: React.FC<Readonly<{ inputId: string }>> = ({ inputId }) => {
         return <div>Loading...</div>
     }
 
-    if (data === undefined) {
-        return <div>Nothing here...</div>
-    }
-
     return (
         <div>
             <h4>{inputId}</h4>

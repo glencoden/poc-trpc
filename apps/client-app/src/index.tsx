@@ -25,7 +25,7 @@ const App: React.FC = () => {
     if (!match) {
         return (
             <main>
-                <Link href={`/pageOne`}>Go to page one</Link>
+                <Link href={'/pageOne'}>Go to page one</Link>
             </main>
         )
     }
